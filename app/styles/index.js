@@ -4,17 +4,22 @@ import {Colors} from './colors';
 export const textStyles = StyleSheet.create({
   title: {
     fontSize: 50,
+    fontFamily: 'TitilliumWeb-SemiBold',
     color: Colors.mainColorDark,
-    fontWeight: '700',
   },
   subTitle: {
     fontSize: 35,
+    fontFamily: 'TitilliumWeb-Regular',
     color: Colors.mainColor,
-    fontWeight: '400',
   },
   paragraph: {
     fontSize: 20,
+    fontFamily: 'TitilliumWeb-Light',
     color: Colors.black,
+  },
+  button: {
+    fontSize: 30,
+    fontFamily: 'TitilliumWeb-ExtraLight',
   },
 });
 
@@ -26,5 +31,16 @@ export const buttonStyles = StyleSheet.create({
     padding: 10,
     backgroundColor: Colors.mainColor,
     borderRadius: 10,
+  },
+});
+
+export const screenStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 10,
+    backgroundColor: Colors.grey,
+  },
+  row: {
+    flexDirection: 'row',
   },
 });
