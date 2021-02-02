@@ -21,6 +21,9 @@ export const textStyles = StyleSheet.create({
     fontSize: 30,
     fontFamily: 'TitilliumWeb-ExtraLight',
   },
+  center: {
+    textAlign: 'center',
+  },
 });
 
 export const buttonStyles = StyleSheet.create({
@@ -42,5 +45,10 @@ export const screenStyles = StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
+  },
+  center: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
