@@ -22,6 +22,11 @@ export const textStyles = StyleSheet.create({
     fontFamily: 'TitilliumWeb-ExtraLight',
     color: Colors.white,
   },
+  textButton: {
+    fontSize: 20,
+    fontFamily: 'TitilliumWeb-SemiBold',
+    color: Colors.mainColor,
+  },
   center: {
     textAlign: 'center',
   },
@@ -29,7 +34,7 @@ export const textStyles = StyleSheet.create({
 
 export const buttonStyles = StyleSheet.create({
   container: {
-    width: '100%',
+    width: '75%',
     height: 60,
     margin: 10,
     padding: 10,
