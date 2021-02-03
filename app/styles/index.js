@@ -20,6 +20,7 @@ export const textStyles = StyleSheet.create({
   button: {
     fontSize: 30,
     fontFamily: 'TitilliumWeb-ExtraLight',
+    color: Colors.white,
   },
   center: {
     textAlign: 'center',
@@ -29,11 +30,24 @@ export const textStyles = StyleSheet.create({
 export const buttonStyles = StyleSheet.create({
   container: {
     width: '100%',
-    height: 20,
+    height: 60,
     margin: 10,
     padding: 10,
     backgroundColor: Colors.mainColor,
-    borderRadius: 10,
+    borderRadius: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+
+export const textInputStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    padding: 10,
+    backgroundColor: Colors.white,
+    borderRadius: 30,
   },
 });
 
@@ -45,6 +59,8 @@ export const screenStyles = StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
   },
   center: {
     flex: 1,

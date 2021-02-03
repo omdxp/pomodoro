@@ -1,21 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Test from './app/screens/test/TestUI';
 import Home from './app/screens/home/HomeUI';
 import {NavigationContainer} from '@react-navigation/native';
-import {createDrawerNavigator} from '@react-navigation/drawer';
 
-// create the drawer menu
-const Drawer = createDrawerNavigator();
+// import screens
+import Auth from './app/screens/auth/Navigation';
+import Main from './app/screens/Navigation';
 
 export default function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <NavigationContainer>
-      <Drawer.Navigator
-        screenOptions={{headerShown: true}}
-        drawerType={'slide'}>
-        <Drawer.Screen name="Home" component={Home} />
-        <Drawer.Screen name="Test" component={Test} />
-      </Drawer.Navigator>
+      {isLoggedIn ? <Main /> : <Auth />}
     </NavigationContainer>
   );
 }
