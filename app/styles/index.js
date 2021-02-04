@@ -62,7 +62,14 @@ export const screenStyles = StyleSheet.create({
     padding: 10,
     backgroundColor: Colors.grey,
   },
+  column: {
+    width: '100%',
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+  },
   row: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-evenly',

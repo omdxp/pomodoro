@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TextInput} from 'react-native';
+import {View, Text, TextInput, ScrollView} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 // import components
@@ -18,35 +18,37 @@ export default function Login() {
   return (
     <View style={screenStyles.container}>
       <Text style={textStyles.title}>Login</Text>
-      <View style={screenStyles.center}>
-        <View style={screenStyles.row}>
-          <Text style={textStyles.paragraph}>Username</Text>
-          <TextInput
-            style={textInputStyles.container}
-            placeholder={'Enter your username here'}
-          />
+      <ScrollView>
+        <View style={screenStyles.center}>
+          <View style={screenStyles.column}>
+            <Text style={textStyles.paragraph}>Username</Text>
+            <TextInput
+              style={textInputStyles.container}
+              placeholder={'Enter your username here'}
+            />
+          </View>
+          <SizedBox vertical={10} />
+          <View style={screenStyles.column}>
+            <Text style={textStyles.paragraph}>Password</Text>
+            <TextInput
+              style={textInputStyles.container}
+              placeholder={'Enter your password here'}
+            />
+          </View>
+          <SizedBox vertical={10} />
+          <Button title={'Login'} onPress={loginHandler} />
+          <SizedBox vertical={10} />
+          <View style={screenStyles.row}>
+            <Text style={textStyles.paragraph}>Don't have an account?</Text>
+            <TextButton
+              text={'Sign up here'}
+              onPress={() => {
+                navigation.navigate('SignUp');
+              }}
+            />
+          </View>
         </View>
-        <SizedBox vertical={10} />
-        <View style={screenStyles.row}>
-          <Text style={textStyles.paragraph}>Password</Text>
-          <TextInput
-            style={textInputStyles.container}
-            placeholder={'Enter your password here'}
-          />
-        </View>
-        <SizedBox vertical={10} />
-        <Button title={'Login'} onPress={loginHandler} />
-        <SizedBox vertical={10} />
-        <View style={screenStyles.row}>
-          <Text style={textStyles.paragraph}>Don't have an account?</Text>
-          <TextButton
-            text={'Sign up here'}
-            onPress={() => {
-              navigation.navigate('SignUp');
-            }}
-          />
-        </View>
-      </View>
+      </ScrollView>
     </View>
   );
 }
