@@ -3,15 +3,15 @@ import {View, Text, TextInput, ScrollView} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 // import components
-import Button from '../../components/button';
+import Button from '../../../components/button';
 import {SizedBox} from 'sizedbox';
 
 // import styles
-import {screenStyles, textInputStyles, textStyles} from '../../styles';
+import {screenStyles, textInputStyles, textStyles} from '../../../styles';
 
 // import functions
-import {loginHandler, singupRedirectHandler} from './LoginFunctions';
-import TextButton from '../../components/textButton';
+import {loginHandler, singupRedirectHandler} from '../functions/LoginFunctions';
+import TextButton from '../../../components/textButton';
 
 export default function Login() {
   // text input

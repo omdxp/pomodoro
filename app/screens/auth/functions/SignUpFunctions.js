@@ -12,6 +12,7 @@ export const isPasswordsSame = (password1, password2) => {
 };
 
 // this function check the strength of the password
+// TODO: complete function
 export const isPasswordStrong = (password) => {
   if (password) {
     return true;

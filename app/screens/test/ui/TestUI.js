@@ -2,8 +2,8 @@ import React from 'react';
 import {Text, View, ScrollView, Dimensions} from 'react-native';
 import {LineChart} from 'react-native-chart-kit';
 import Pie from 'react-native-pie';
-import {textStyles, screenStyles} from '../../styles';
-import {Colors} from '../../styles/colors';
+import {textStyles, screenStyles} from '../../../styles';
+import {Colors} from '../../../styles/colors';
 
 export default function Test() {
   return (

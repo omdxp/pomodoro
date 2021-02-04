@@ -1,8 +1,8 @@
 import React from 'react';
 // import drawer navigation
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import Home from './home/HomeUI';
-import Test from './test/TestUI';
+import Home from './home/ui/HomeUI';
+import Test from './test/ui/TestUI';
 
 // create drawer menu
 const Drawer = createDrawerNavigator();

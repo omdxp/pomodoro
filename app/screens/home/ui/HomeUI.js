@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, Dimensions, ScrollView} from 'react-native';
-import {screenStyles, textStyles} from '../../styles';
+import {screenStyles, textStyles} from '../../../styles';
 
 export default function Home() {
   return (

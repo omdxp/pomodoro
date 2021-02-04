@@ -1,6 +1,4 @@
 import React, {useState} from 'react';
-import Test from './app/screens/test/TestUI';
-import Home from './app/screens/home/HomeUI';
 import {NavigationContainer} from '@react-navigation/native';
 
 // import screens

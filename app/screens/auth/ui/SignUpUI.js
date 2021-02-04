@@ -3,15 +3,15 @@ import {View, Text, TextInput} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 // import components
-import Button from '../../components/button';
+import Button from '../../../components/button';
 import {SizedBox} from 'sizedbox';
 
 // import styles
-import {screenStyles, textInputStyles, textStyles} from '../../styles';
+import {screenStyles, textInputStyles, textStyles} from '../../../styles';
 
 // import functions
-import {signupHandler, isPasswordsSame} from './SignUpFunctions';
-import TextButton from '../../components/textButton';
+import {signupHandler, isPasswordsSame} from '../functions/SignUpFunctions';
+import TextButton from '../../../components/textButton';
 import {ScrollView} from 'react-native-gesture-handler';
 
 export default function SignUp() {
