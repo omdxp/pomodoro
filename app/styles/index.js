@@ -30,6 +30,11 @@ export const textStyles = StyleSheet.create({
   center: {
     textAlign: 'center',
   },
+  errorText: {
+    color: Colors.error,
+    fontSize: 17,
+    fontFamily: 'TitilliumWeb-Regular',
+  },
 });
 
 export const buttonStyles = StyleSheet.create({
@@ -53,6 +58,7 @@ export const textInputStyles = StyleSheet.create({
     padding: 10,
     backgroundColor: Colors.white,
     borderRadius: 30,
+    fontFamily: 'TitilliumWeb-SemiBold',
   },
 });
 
