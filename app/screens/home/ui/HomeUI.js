@@ -23,6 +23,7 @@ export default function Home() {
   const [timerReset, setTimerReset] = useState(false);
   const [stopwatchReset, setStopwatchReset] = useState(false);
 
+  // timer functions
   const toggleTimer = () => {
     setTimerStart(!timerStart);
     setTimerReset(false);
@@ -33,6 +34,7 @@ export default function Home() {
     setTimerReset(true);
   };
 
+  // stopwatch functions
   const toggleStopwatch = () => {
     setStopwatchStart(!stopwatchStart);
     setStopwatchReset(false);
@@ -43,6 +45,7 @@ export default function Home() {
     setStopwatchReset(true);
   };
 
+  // get formatted time
   const getFormattedTime = (time) => {
     this.currentTime = time;
   };
@@ -65,7 +68,6 @@ export default function Home() {
           <View style={screenStyles.center}>
             <Timer
               totalDuration={totalDuration}
-              msecs
               start={timerStart}
               reset={timerReset}
               options={timerStyles}
