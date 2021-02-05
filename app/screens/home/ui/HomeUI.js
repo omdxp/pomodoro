@@ -6,11 +6,17 @@ import {
   ScrollView,
   ImageBackground,
 } from 'react-native';
-import {homeStyles, screenStyles, textStyles} from '../../../styles';
+import {
+  homeStyles,
+  screenStyles,
+  textStyles,
+  timerStyles,
+} from '../../../styles';
 import {Stopwatch, Timer} from 'react-native-stopwatch-timer';
 import Button from '../../../components/button';
 
 export default function Home() {
+  // states
   const [timerStart, setTimerStart] = useState(false);
   const [stopwatchStart, setStopwatchStart] = useState(false);
   const [totalDuration, setTotalDuration] = useState(1500000);
@@ -53,11 +59,8 @@ export default function Home() {
           uri:
             'https://mir-s3-cdn-cf.behance.net/project_modules/disp/496ecb14589707.562865d064f9e.png',
         }}
-        style={[
-          {flex: 1, resizeMode: 'cover', justifyContent: 'center'},
-          homeStyles.body,
-        ]}
-        imageStyle={{borderTopLeftRadius: 50, borderTopRightRadius: 50}}>
+        style={[homeStyles.imageBackgournd, homeStyles.body]}
+        imageStyle={homeStyles.imageBackgourndBorders}>
         <ScrollView>
           <View style={screenStyles.center}>
             <Timer
@@ -65,7 +68,7 @@ export default function Home() {
               msecs
               start={timerStart}
               reset={timerReset}
-              options={options}
+              options={timerStyles}
               handleFinish={handleTimerComplete}
               getTime={getFormattedTime}
             />
@@ -82,20 +85,3 @@ export default function Home() {
 }
 
 const handleTimerComplete = () => alert('custom completion function');
-
-const options = {
-  container: {
-    backgroundColor: '#fede',
-    padding: 5,
-    borderRadius: 50,
-    width: '80%',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 40,
-    fontFamily: 'TitilliumWeb-Regular',
-    color: 'blue',
-    margin: 10,
-  },
-};

@@ -108,4 +108,23 @@ export const homeStyles = StyleSheet.create({
     color: Colors.white,
     fontSize: 24,
   },
+  imageBackgournd: {flex: 1, resizeMode: 'cover', justifyContent: 'center'},
+  imageBackgourndBorders: {borderTopLeftRadius: 50, borderTopRightRadius: 50},
+});
+
+export const timerStyles = StyleSheet.create({
+  container: {
+    backgroundColor: Colors.grey,
+    padding: 5,
+    borderRadius: 50,
+    width: '80%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: 40,
+    fontFamily: 'TitilliumWeb-Regular',
+    color: Colors.mainColor,
+    margin: 10,
+  },
 });
