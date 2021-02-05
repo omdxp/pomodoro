@@ -86,3 +86,26 @@ export const screenStyles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export const homeStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: Colors.grey,
+  },
+  head: {
+    flex: 1,
+    padding: 10,
+  },
+  body: {
+    flex: 3,
+    padding: 10,
+    backgroundColor: Colors.mainColor,
+    borderTopRightRadius: 50,
+    borderTopLeftRadius: 50,
+  },
+  bodyText: {
+    ...textStyles.paragraph,
+    color: Colors.white,
+    fontSize: 24,
+  },
+});

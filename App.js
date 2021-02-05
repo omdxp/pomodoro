@@ -14,7 +14,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        {isLoggedIn ? <Main /> : <Auth />}
+        {!isLoggedIn ? <Main /> : <Auth />}
       </NavigationContainer>
     </Provider>
   );
