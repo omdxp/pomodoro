@@ -97,7 +97,7 @@ export const homeStyles = StyleSheet.create({
     padding: 10,
   },
   body: {
-    flex: 3,
+    flex: 4,
     padding: 10,
     backgroundColor: Colors.mainColor,
     borderTopRightRadius: 50,

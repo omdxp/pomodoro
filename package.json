@@ -27,6 +27,7 @@
     "react-native-responsive-screen": "^1.4.2",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-screens": "^2.15.2",
+    "react-native-stopwatch-timer": "^0.0.21",
     "react-native-svg": "^12.1.0",
     "react-native-vector-icons": "^8.0.0",
     "react-redux": "^7.2.2",
