@@ -59,19 +59,6 @@ export default function Home() {
         ]}
         imageStyle={{borderTopLeftRadius: 50, borderTopRightRadius: 50}}>
         <ScrollView>
-          {/* <Stopwatch
-            laps
-            msecs
-            start={stopwatchStart}
-            reset={stopwatchReset}
-            options={options}
-            getTime={getFormattedTime}
-          />
-          <Button
-            title={!stopwatchStart ? 'Start' : 'Stop'}
-            onPress={toggleStopwatch}
-          />
-          <Button title={'Reset'} onPress={resetStopwatch} /> */}
           <View style={screenStyles.center}>
             <Timer
               totalDuration={totalDuration}
