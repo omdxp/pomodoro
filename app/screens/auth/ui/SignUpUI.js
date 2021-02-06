@@ -22,7 +22,7 @@ import {SizedBox} from 'sizedbox';
 import {screenStyles, textInputStyles, textStyles} from '../../../styles';
 
 // import functions
-import {signupHandler, isPasswordsSame} from '../functions/SignUpFunctions';
+import {isInputValidFunc, isPasswordsSame} from '../functions/SignUpFunctions';
 import TextButton from '../../../components/textButton';
 import {BarPasswordStrengthDisplay} from 'react-native-password-strength-meter';
 
@@ -34,6 +34,7 @@ export default function SignUp() {
   const [repassword, setRepassword] = useState('');
   // booleans
   const [passwordsSame, setPasswordsSame] = useState(true);
+  const [isInputValid, setIsInputValid] = useState(true);
   // use dispatch
   const dispatch = useDispatch();
   // use navigation
@@ -41,6 +42,10 @@ export default function SignUp() {
 
   // this function handles the signup process
   const signupHandler = () => {
+    if (!isInputValidFunc(fullName, userName, password)) {
+      alert('not valid input');
+      return;
+    }
     console.log('Sign up started');
     const payload = {fullName, userName, password};
     console.log('payload:', payload);
@@ -59,7 +64,10 @@ export default function SignUp() {
               style={textInputStyles.container}
               placeholder={'Enter your full name here'}
               value={fullName}
-              onChangeText={(value) => setFullName(value)}
+              onChangeText={(value) => {
+                setFullName(value);
+                setIsInputValid(isInputValidFunc(fullName, userName, password));
+              }}
             />
           </View>
           <SizedBox vertical={10} />
@@ -69,7 +77,10 @@ export default function SignUp() {
               style={textInputStyles.container}
               placeholder={'Enter your username here'}
               value={userName}
-              onChangeText={(value) => setUserName(value)}
+              onChangeText={(value) => {
+                setUserName(value);
+                setIsInputValid(isInputValidFunc(fullName, userName, password));
+              }}
             />
           </View>
           <SizedBox vertical={10} />
@@ -82,6 +93,7 @@ export default function SignUp() {
               onChangeText={(value) => {
                 setPassword(value);
                 setPasswordsSame(isPasswordsSame(value, repassword));
+                setIsInputValid(isInputValidFunc(fullName, userName, password));
               }}
               secureTextEntry={true}
             />
@@ -116,8 +128,11 @@ export default function SignUp() {
             <Text style={textStyles.errorText}>Passwords don't match up</Text>
           )}
           <SizedBox vertical={10} />
-          <TouchableOpacity />
-          <Button title={'Sign up'} onPress={signupHandler} />
+          <Button
+            title={'Sign up'}
+            onPress={signupHandler}
+            disabled={!passwordsSame}
+          />
           <SizedBox vertical={10} />
           <View style={screenStyles.row}>
             <Text style={textStyles.paragraph}>Already have an account? </Text>
