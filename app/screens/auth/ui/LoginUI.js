@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, TextInput, ScrollView} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
@@ -10,15 +10,23 @@ import {SizedBox} from 'sizedbox';
 import {screenStyles, textInputStyles, textStyles} from '../../../styles';
 
 // import functions
-import {loginHandler, singupRedirectHandler} from '../functions/LoginFunctions';
+import {loginHandler, areInputsEmptyFunc} from '../functions/LoginFunctions';
 import TextButton from '../../../components/textButton';
 
 export default function Login() {
   // text input
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
+  // booleans
+  const [areInputsEmpty, setAreInputsEmpty] = useState(true);
   // use navigation
   const navigation = useNavigation();
+
+  // use effect to check if inputs are empty
+  useEffect(() => {
+    setAreInputsEmpty(areInputsEmptyFunc(userName, password));
+  }, [userName, password]);
+
   return (
     <View style={screenStyles.container}>
       <Text style={textStyles.title}>Login</Text>
@@ -45,7 +53,11 @@ export default function Login() {
             />
           </View>
           <SizedBox vertical={10} />
-          <Button title={'Login'} onPress={loginHandler} />
+          <Button
+            title={'Login'}
+            onPress={loginHandler}
+            disabled={areInputsEmpty}
+          />
           <SizedBox vertical={10} />
           <View style={screenStyles.row}>
             <Text style={textStyles.paragraph}>Don't have an account? </Text>
