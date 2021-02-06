@@ -1,6 +1,18 @@
 import React, {useState} from 'react';
-import {View, Text, TextInput} from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+
+// import redux reducer
+import {useDispatch} from 'react-redux';
+
+// import redux action
+import signupAction from '../../../redux/actions/auth/signupAction';
 
 // import components
 import Button from '../../../components/button';
@@ -12,7 +24,6 @@ import {screenStyles, textInputStyles, textStyles} from '../../../styles';
 // import functions
 import {signupHandler, isPasswordsSame} from '../functions/SignUpFunctions';
 import TextButton from '../../../components/textButton';
-import {ScrollView} from 'react-native-gesture-handler';
 import {BarPasswordStrengthDisplay} from 'react-native-password-strength-meter';
 
 export default function SignUp() {
@@ -23,8 +34,20 @@ export default function SignUp() {
   const [repassword, setRepassword] = useState('');
   // booleans
   const [passwordsSame, setPasswordsSame] = useState(true);
+  // use dispatch
+  const dispatch = useDispatch();
   // use navigation
   const navigation = useNavigation();
+
+  // this function handles the signup process
+  const signupHandler = () => {
+    console.log('Sign up started');
+    const payload = {fullName, userName, password};
+    console.log('payload:', payload);
+    dispatch(signupAction(payload));
+    console.log('dispatched!');
+  };
+
   return (
     <View style={screenStyles.container}>
       <Text style={textStyles.title}>Sign Up</Text>
@@ -93,6 +116,7 @@ export default function SignUp() {
             <Text style={textStyles.errorText}>Passwords don't match up</Text>
           )}
           <SizedBox vertical={10} />
+          <TouchableOpacity />
           <Button title={'Sign up'} onPress={signupHandler} />
           <SizedBox vertical={10} />
           <View style={screenStyles.row}>

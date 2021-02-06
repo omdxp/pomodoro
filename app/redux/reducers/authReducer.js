@@ -5,6 +5,7 @@ export const initialStateAuth = {
 };
 
 export const authReducer = (state = initialStateAuth, action) => {
+  console.log('authReducer:', state, action.payload);
   switch (action.type) {
     case LOGIN:
       return {
@@ -15,7 +16,7 @@ export const authReducer = (state = initialStateAuth, action) => {
     case SIGNUP:
       return {
         ...state,
-        users: [...users, action.payload],
+        users: action.payload,
       };
 
     default:
