@@ -13,6 +13,7 @@ import {screenStyles, textInputStyles, textStyles} from '../../../styles';
 import {signupHandler, isPasswordsSame} from '../functions/SignUpFunctions';
 import TextButton from '../../../components/textButton';
 import {ScrollView} from 'react-native-gesture-handler';
+import {BarPasswordStrengthDisplay} from 'react-native-password-strength-meter';
 
 export default function SignUp() {
   // text inputs
@@ -62,6 +63,11 @@ export default function SignUp() {
               secureTextEntry={true}
             />
           </View>
+          {password.length > 0 ? (
+            <BarPasswordStrengthDisplay password={password} />
+          ) : (
+            <View />
+          )}
           {passwordsSame ? (
             <View />
           ) : (

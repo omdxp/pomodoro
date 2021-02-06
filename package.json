@@ -22,6 +22,7 @@
     "react-native-chart-kit": "^6.10.1",
     "react-native-elements": "^3.1.0",
     "react-native-gesture-handler": "^1.9.0",
+    "react-native-password-strength-meter": "^0.0.5",
     "react-native-pie": "^1.1.2",
     "react-native-reanimated": "^1.13.2",
     "react-native-responsive-screen": "^1.4.2",
