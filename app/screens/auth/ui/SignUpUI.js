@@ -1,11 +1,5 @@
-import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  TextInput,
-  ScrollView,
-  TouchableOpacity,
-} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, Text, TextInput, ScrollView} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 // import redux reducer
@@ -22,7 +16,11 @@ import {SizedBox} from 'sizedbox';
 import {screenStyles, textInputStyles, textStyles} from '../../../styles';
 
 // import functions
-import {isInputValidFunc, isPasswordsSame} from '../functions/SignUpFunctions';
+import {
+  isInputValidFunc,
+  isPasswordsSame,
+  areInputsEmptyFunc,
+} from '../functions/SignUpFunctions';
 import TextButton from '../../../components/textButton';
 import {BarPasswordStrengthDisplay} from 'react-native-password-strength-meter';
 
@@ -35,10 +33,18 @@ export default function SignUp() {
   // booleans
   const [passwordsSame, setPasswordsSame] = useState(true);
   const [isInputValid, setIsInputValid] = useState(true);
+  const [areInputsEmpty, setAreInputsEmpty] = useState(true);
   // use dispatch
   const dispatch = useDispatch();
   // use navigation
   const navigation = useNavigation();
+
+  // use effect to check if inputs are empty
+  useEffect(() => {
+    setAreInputsEmpty(
+      areInputsEmptyFunc(fullName, userName, password, repassword),
+    );
+  }, [fullName, userName, password, repassword]);
 
   // this function handles the signup process
   const signupHandler = () => {
@@ -131,7 +137,7 @@ export default function SignUp() {
           <Button
             title={'Sign up'}
             onPress={signupHandler}
-            disabled={!passwordsSame}
+            disabled={!passwordsSame || areInputsEmpty}
           />
           <SizedBox vertical={10} />
           <View style={screenStyles.row}>

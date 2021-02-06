@@ -12,6 +12,18 @@ export const isInputValidFunc = (fullName, userName, password) => {
   return true;
 };
 
+// this function check if all inputs are empty
+export const areInputsEmptyFunc = (
+  fullName,
+  userName,
+  password1,
+  password2,
+) => {
+  return (
+    fullName === '' || userName === '' || password1 === '' || password2 === ''
+  );
+};
+
 // this function check if passwords match up
 export const isPasswordsSame = (password1, password2) => {
   if (password1 === '' || password2 === '') {
