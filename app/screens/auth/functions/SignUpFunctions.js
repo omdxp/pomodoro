@@ -46,7 +46,5 @@ export const signupHandler = (
   }
   console.log('Sign up started');
   const payload = {fullName, userName, password};
-  console.log('payload:', payload);
   dispatch(signupAction(payload));
-  console.log('dispatched!');
 };
