@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, TextInput, ScrollView} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import Main from '../../../screens/Navigation';
 
 // import components
 import Button from '../../../components/button';
@@ -13,6 +14,9 @@ import {screenStyles, textInputStyles, textStyles} from '../../../styles';
 import {loginHandler, areInputsEmptyFunc} from '../functions/LoginFunctions';
 import TextButton from '../../../components/textButton';
 
+// import redux
+import {useSelector} from 'react-redux';
+
 export default function Login() {
   // text input
   const [userName, setUserName] = useState('');
@@ -21,11 +25,26 @@ export default function Login() {
   const [areInputsEmpty, setAreInputsEmpty] = useState(true);
   // use navigation
   const navigation = useNavigation();
+  // get users
+  const users = useSelector((state) => state.authReducer.users);
 
   // use effect to check if inputs are empty
   useEffect(() => {
     setAreInputsEmpty(areInputsEmptyFunc(userName, password));
   }, [userName, password]);
+
+  // this function handles the login process
+  const loginHandler = () => {
+    console.log('Login started');
+    console.log('loginHandler users:', users);
+    var userExists = false;
+    users.forEach((element) => {
+      if (userName === element.userName && password === element.password) {
+        userExists = true;
+      }
+    });
+    userExists ? navigation.navigate('Main') : alert('Username does not exist');
+  };
 
   return (
     <View style={screenStyles.container}>
