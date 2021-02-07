@@ -20,6 +20,7 @@ import {
   isInputValidFunc,
   isPasswordsSame,
   areInputsEmptyFunc,
+  signupHandler,
 } from '../functions/SignUpFunctions';
 import TextButton from '../../../components/textButton';
 import {BarPasswordStrengthDisplay} from 'react-native-password-strength-meter';
@@ -45,19 +46,6 @@ export default function SignUp() {
       areInputsEmptyFunc(fullName, userName, password, repassword),
     );
   }, [fullName, userName, password, repassword]);
-
-  // this function handles the signup process
-  const signupHandler = () => {
-    if (!isInputValidFunc(fullName, userName, password)) {
-      alert('not valid input');
-      return;
-    }
-    console.log('Sign up started');
-    const payload = {fullName, userName, password};
-    console.log('payload:', payload);
-    dispatch(signupAction(payload));
-    console.log('dispatched!');
-  };
 
   return (
     <View style={screenStyles.container}>
@@ -136,7 +124,15 @@ export default function SignUp() {
           <SizedBox vertical={10} />
           <Button
             title={'Sign up'}
-            onPress={signupHandler}
+            onPress={() => {
+              signupHandler(
+                fullName,
+                userName,
+                password,
+                dispatch,
+                signupAction,
+              );
+            }}
             disabled={!passwordsSame || areInputsEmpty}
           />
           <SizedBox vertical={10} />

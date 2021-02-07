@@ -31,3 +31,22 @@ export const isPasswordsSame = (password1, password2) => {
   }
   return password1 === password2;
 };
+
+// this function handles the signup process
+export const signupHandler = (
+  fullName,
+  userName,
+  password,
+  dispatch,
+  signupAction,
+) => {
+  if (!isInputValidFunc(fullName, userName, password)) {
+    alert('not valid input');
+    return;
+  }
+  console.log('Sign up started');
+  const payload = {fullName, userName, password};
+  console.log('payload:', payload);
+  dispatch(signupAction(payload));
+  console.log('dispatched!');
+};
