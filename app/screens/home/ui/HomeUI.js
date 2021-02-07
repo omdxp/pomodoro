@@ -19,9 +19,12 @@ export default function Home() {
   // states
   const [timerStart, setTimerStart] = useState(false);
   const [stopwatchStart, setStopwatchStart] = useState(false);
-  const [totalDuration, setTotalDuration] = useState(1500000);
+  const [totalDuration, setTotalDuration] = useState(10000);
   const [timerReset, setTimerReset] = useState(false);
   const [stopwatchReset, setStopwatchReset] = useState(false);
+
+  // booleans
+  const [isIn25Min, setIsIn25Min] = useState(true);
 
   // timer functions
   const toggleTimer = () => {
@@ -48,6 +51,18 @@ export default function Home() {
   // get formatted time
   const getFormattedTime = (time) => {
     this.currentTime = time;
+  };
+
+  // this function handles the completion of the timeout
+  const handleTimerComplete = () => {
+    setIsIn25Min(!isIn25Min);
+    if (isIn25Min) {
+      setTotalDuration(10000);
+    } else {
+      setTotalDuration(3000);
+    }
+    resetTimer();
+    setTimerStart(true);
   };
 
   return (
@@ -85,5 +100,3 @@ export default function Home() {
     </View>
   );
 }
-
-const handleTimerComplete = () => alert('custom completion function');

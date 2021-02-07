@@ -18,7 +18,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        {isLoggedIn ? (
+        {!isLoggedIn ? (
           <Main />
         ) : (
           <AppStack.Navigator headerMode={'none'}>
