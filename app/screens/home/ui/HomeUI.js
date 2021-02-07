@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   Text,
@@ -25,6 +25,8 @@ export default function Home() {
 
   // booleans
   const [isIn25Min, setIsIn25Min] = useState(true);
+  console.log('isIn25Min:', isIn25Min);
+  console.log('totalDuration:', totalDuration);
 
   // timer functions
   const toggleTimer = () => {
@@ -54,15 +56,16 @@ export default function Home() {
   };
 
   // this function handles the completion of the timeout
-  const handleTimerComplete = () => {
-    setIsIn25Min(!isIn25Min);
+  useEffect(() => {
     if (isIn25Min) {
       setTotalDuration(10000);
     } else {
       setTotalDuration(3000);
     }
     resetTimer();
-    setTimerStart(true);
+  }, [isIn25Min]);
+  const handleTimerComplete = () => {
+    setIsIn25Min(!isIn25Min);
   };
 
   return (
