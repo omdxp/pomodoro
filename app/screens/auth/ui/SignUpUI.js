@@ -132,6 +132,7 @@ export default function SignUp() {
                 dispatch,
                 signupAction,
               );
+              navigation.goBack();
             }}
             disabled={!passwordsSame || areInputsEmpty}
           />
