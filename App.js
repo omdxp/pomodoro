@@ -8,7 +8,8 @@ import Main from './app/screens/Navigation';
 
 // import redux
 import {Provider} from 'react-redux';
-import {store} from './app/redux/store';
+import {store, persistor} from './app/redux/store';
+import {PersistGate} from 'redux-persist/es/integration/react';
 
 // application stack navigator
 const AppStack = createStackNavigator();
@@ -17,16 +18,18 @@ export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <Provider store={store}>
-      <NavigationContainer>
-        {isLoggedIn ? (
-          <Main />
-        ) : (
-          <AppStack.Navigator headerMode={'none'}>
-            <AppStack.Screen name="Auth" component={Auth} />
-            <AppStack.Screen name="Main" component={Main} />
-          </AppStack.Navigator>
-        )}
-      </NavigationContainer>
+      <PersistGate persistor={persistor}>
+        <NavigationContainer>
+          {isLoggedIn ? (
+            <Main />
+          ) : (
+            <AppStack.Navigator headerMode={'none'}>
+              <AppStack.Screen name="Auth" component={Auth} />
+              <AppStack.Screen name="Main" component={Main} />
+            </AppStack.Navigator>
+          )}
+        </NavigationContainer>
+      </PersistGate>
     </Provider>
   );
 }
