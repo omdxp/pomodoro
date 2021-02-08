@@ -33,19 +33,6 @@ export default function Login() {
     setAreInputsEmpty(areInputsEmptyFunc(userName, password));
   }, [userName, password]);
 
-  // this function handles the login process
-  const loginHandler = () => {
-    console.log('Login started');
-    console.log('loginHandler users:', users);
-    var userExists = false;
-    users.forEach((element) => {
-      if (userName === element.userName && password === element.password) {
-        userExists = true;
-      }
-    });
-    userExists ? navigation.navigate('Main') : alert('Username does not exist');
-  };
-
   return (
     <View style={screenStyles.container}>
       <Text style={textStyles.title}>Login</Text>
@@ -74,7 +61,9 @@ export default function Login() {
           <SizedBox vertical={10} />
           <Button
             title={'Login'}
-            onPress={loginHandler}
+            onPress={() => {
+              loginHandler(userName, password, users, navigation);
+            }}
             disabled={areInputsEmpty}
           />
           <SizedBox vertical={10} />
