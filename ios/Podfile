@@ -10,6 +10,8 @@ target 'pomodoro' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-async-storage/async-storage'
+
   target 'pomodoroTests' do
     inherit! :complete
     # Pods for testing

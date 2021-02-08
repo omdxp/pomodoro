@@ -6,7 +6,7 @@ import {authReducer} from '../reducers/authReducer';
 import {persistReducer, persistStore} from 'redux-persist';
 
 // import storage engine
-import FileSystemStorage from 'redux-persist-filesystem-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // define app reducers
 const appReducers = combineReducers({authReducer});
@@ -17,7 +17,7 @@ const rootReducer = (state, action) => {
 // persist configuration
 const persistConfig = {
   key: 'root',
-  storage: FileSystemStorage,
+  storage: AsyncStorage,
   whitelist: ['authReducer'],
 };
 
