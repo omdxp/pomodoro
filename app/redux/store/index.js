@@ -22,7 +22,7 @@ const persistConfig = {
 };
 
 // define persist reducer
-const persistedReducer = persistStore(persistConfig, rootReducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 // create redux store
 export const store = createStore(appReducers);

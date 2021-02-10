@@ -18,7 +18,7 @@ export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <Provider store={store}>
-      <PersistGate persistor={persistor}>
+      <PersistGate persistor={persistor} loading={null}>
         <NavigationContainer>
           {isLoggedIn ? (
             <Main />
