@@ -82,23 +82,21 @@ export default function Home() {
         }}
         style={[homeStyles.imageBackgournd, homeStyles.body]}
         imageStyle={homeStyles.imageBackgourndBorders}>
-        <ScrollView>
-          <View style={screenStyles.center}>
-            <Timer
-              totalDuration={totalDuration}
-              start={timerStart}
-              reset={timerReset}
-              options={timerStyles}
-              handleFinish={handleTimerComplete}
-              getTime={getFormattedTime}
-            />
-            <Button
-              title={!timerStart ? 'Start' : 'Stop'}
-              onPress={toggleTimer}
-            />
-            <Button title={'Reset'} onPress={resetTimer} />
-          </View>
-        </ScrollView>
+        <View style={screenStyles.center}>
+          <Timer
+            totalDuration={totalDuration}
+            start={timerStart}
+            reset={timerReset}
+            options={timerStyles}
+            handleFinish={handleTimerComplete}
+            getTime={getFormattedTime}
+          />
+          <Button
+            title={!timerStart ? 'Start' : 'Stop'}
+            onPress={toggleTimer}
+          />
+          <Button title={'Reset'} onPress={resetTimer} />
+        </View>
       </ImageBackground>
     </View>
   );
