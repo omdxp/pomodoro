@@ -25,7 +25,7 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 // create redux store
-export const store = createStore(appReducers);
+export const store = createStore(persistedReducer);
 
 // create persist store
 export const persistor = persistStore(store);
