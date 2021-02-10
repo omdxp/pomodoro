@@ -19,7 +19,7 @@ export default function Home() {
   // states
   const [timerStart, setTimerStart] = useState(false);
   const [stopwatchStart, setStopwatchStart] = useState(false);
-  const [totalDuration, setTotalDuration] = useState(10000);
+  const [totalDuration, setTotalDuration] = useState(1500000);
   const [timerReset, setTimerReset] = useState(false);
   const [stopwatchReset, setStopwatchReset] = useState(false);
 
@@ -58,9 +58,9 @@ export default function Home() {
   // this function handles the completion of the timeout
   useEffect(() => {
     if (isIn25Min) {
-      setTotalDuration(10000);
+      setTotalDuration(1500000);
     } else {
-      setTotalDuration(3000);
+      setTotalDuration(300000);
     }
     resetTimer();
   }, [isIn25Min]);
