@@ -13,6 +13,10 @@ The Pomodoro Technique is a time management method developed by Francesco Cirill
 
 ![](screenshots/home_ui.png)
 
+## Current Drawer UI
+
+![](screenshots/drawer_ui.png)
+
 ## Current Login UI
 
 ![](screenshots/login_ui.png)
@@ -21,11 +25,18 @@ The Pomodoro Technique is a time management method developed by Francesco Cirill
 
 ![](screenshots/signup_ui.png)
 
+## Current Settings UI
+
+![](screenshots/settings_ui.png)
+
+## Current About UI
+
+![](screenshots/about_ui.png)
+
 ## Todo
 
 - Modify home screen
 - Add history screen
-- Add setting screen
 
 # Contributions
 
