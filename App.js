@@ -20,14 +20,12 @@ export default function App() {
     <Provider store={store}>
       <PersistGate persistor={persistor} loading={null}>
         <NavigationContainer>
-          {isLoggedIn ? (
-            <Main />
-          ) : (
-            <AppStack.Navigator headerMode={'none'}>
-              <AppStack.Screen name="Auth" component={Auth} />
-              <AppStack.Screen name="Main" component={Main} />
-            </AppStack.Navigator>
-          )}
+          <AppStack.Navigator
+            headerMode={'none'}
+            initialRouteName={isLoggedIn ? 'Main' : 'Auth'}>
+            <AppStack.Screen name="Auth" component={Auth} />
+            <AppStack.Screen name="Main" component={Main} />
+          </AppStack.Navigator>
         </NavigationContainer>
       </PersistGate>
     </Provider>
