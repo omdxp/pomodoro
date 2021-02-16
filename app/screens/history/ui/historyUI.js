@@ -1,16 +1,28 @@
-
 // import react native
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, FlatList} from 'react-native';
 
 // import history functions
-import {} from '../functions';
+import {dummyData} from '../functions';
+
+// import styles
+import {screenStyles, textStyles} from '../../../styles';
 
 // export history UI
-export default function historyUI() {
+export default function HistoryUI() {
   return (
-    <View>
-      <Text>history UI created!</Text>
+    <View style={screenStyles.container}>
+      <View style={screenStyles.column}>
+        <FlatList
+          data={dummyData}
+          keyExtractor={(item) => item.id}
+          renderItem={({item}) => (
+            <Text style={textStyles.paragraph}>
+              {item.name} - {item.name}
+            </Text>
+          )}
+        />
+      </View>
     </View>
   );
 }
